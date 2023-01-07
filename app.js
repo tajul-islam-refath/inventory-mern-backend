@@ -1,6 +1,7 @@
 // Basic Lib Import
+const { readdirSync } = require("fs");
 const express = require("express");
-const router = require("./src/routes/api");
+// const router = require("./src/routes/api");
 const app = new express();
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -32,7 +33,10 @@ const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 3000 });
 app.use(limiter);
 
 // Routing Implement
-app.use("/api/v1", router);
+// app.use("/api/v1", router);
+readdirSync("./src/routes").map((r) =>
+  app.use("/api/v1", require(`./src/routes/${r}`))
+);
 
 // Undefined Route Implement
 app.use("*", (req, res) => {
