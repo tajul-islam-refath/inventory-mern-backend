@@ -19,7 +19,7 @@ mongoose.connect(URI, options, (error) => {
   } else {
     console.log("Database Connection Success");
     app.listen(PORT, function () {
-      console.log("App Running successfully");
+      console.log("App Running successfully into - ", PORT);
     });
   }
 });

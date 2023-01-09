@@ -1,4 +1,4 @@
-const OTPSModel = require("../../models/Users/OTPSModel");
+const OTPSModel = require("../../models/Users/OTPModel");
 
 const UserResetPassService = async (Request, DataModel) => {
   let email = Request.body["email"];
