@@ -8,15 +8,17 @@ router.post(
   AuthVerifyMiddleware,
   ReturnsController.CreateReturns
 );
+
 router.get(
   "/ReturnsList/:pageNo/:perPage/:searchKeyword",
   AuthVerifyMiddleware,
   ReturnsController.ReturnsList
 );
-// router.get(
-//   "/ReturnDelete/:id",
-//   AuthVerifyMiddleware,
-//   ReturnsController.ReturnDelete
-// );
+
+router.get(
+  "/ReturnDelete/:id",
+  AuthVerifyMiddleware,
+  ReturnsController.ReturnDelete
+);
 
 module.exports = router;

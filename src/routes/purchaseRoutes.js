@@ -13,6 +13,10 @@ router.get(
   AuthVerifyMiddleware,
   PurchasesController.PurchasesList
 );
-// router.get("/PurchasesDelete/:id",AuthVerifyMiddleware,PurchasesController.PurchasesDelete);
+router.get(
+  "/PurchasesDelete/:id",
+  AuthVerifyMiddleware,
+  PurchasesController.PurchasesDelete
+);
 
 module.exports = router;

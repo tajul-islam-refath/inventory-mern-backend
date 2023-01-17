@@ -9,6 +9,6 @@ router.get(
   AuthVerifyMiddleware,
   SalesController.SalesList
 );
-// router.get("/SaleDelete/:id",AuthVerifyMiddleware,SalesController.SaleDelete);
+router.get("/SaleDelete/:id", AuthVerifyMiddleware, SalesController.SaleDelete);
 
 module.exports = router;
