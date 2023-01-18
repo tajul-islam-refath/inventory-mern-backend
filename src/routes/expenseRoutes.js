@@ -25,4 +25,10 @@ router.get(
   ExpensesController.ExpenseDetailsByID
 );
 
+router.get(
+  "/DeleteExpense/:id",
+  AuthVerifyMiddleware,
+  ExpensesController.DeleteExpense
+);
+
 module.exports = router;

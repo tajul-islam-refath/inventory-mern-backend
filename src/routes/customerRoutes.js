@@ -29,4 +29,10 @@ router.get(
   CustomersController.CustomersDetailsByID
 );
 
+router.get(
+  "/Customer/DeleteCustomer/:id",
+  AuthVerifyMiddleware,
+  CustomersController.DeleteCustomer
+);
+
 module.exports = router;

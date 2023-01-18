@@ -29,4 +29,10 @@ router.get(
   BrandsController.BrandDetailsByID
 );
 
+router.get(
+  "/Brand/DeleteBrand/:id",
+  AuthVerifyMiddleware,
+  BrandsController.DeleteBrand
+);
+
 module.exports = router;

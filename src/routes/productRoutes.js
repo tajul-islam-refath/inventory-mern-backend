@@ -18,7 +18,11 @@ router.get(
   AuthVerifyMiddleware,
   ProductsController.ProductsList
 );
-// router.get("/DeleteProduct/:id",AuthVerifyMiddleware,ProductsController.DeleteProduct);
+router.get(
+  "/DeleteProduct/:id",
+  AuthVerifyMiddleware,
+  ProductsController.DeleteProduct
+);
 router.get(
   "/ProductsDetailsByID/:id",
   AuthVerifyMiddleware,

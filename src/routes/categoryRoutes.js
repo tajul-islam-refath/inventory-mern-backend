@@ -30,4 +30,10 @@ router.get(
   CategoriesController.CategoriesDetailsByID
 );
 
+router.get(
+  "/Category/DeleteCategories/:id",
+  AuthVerifyMiddleware,
+  CategoriesController.DeleteCategories
+);
+
 module.exports = router;

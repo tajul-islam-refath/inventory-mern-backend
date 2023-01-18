@@ -1,9 +1,13 @@
 const DataModel = require("../../models/Expenses/ExpenseTypesModel");
+const ExpensesModel = require("../../models/Expenses/ExpensesModel");
 const CreateService = require("../../services/common/CreateService");
 const UpdateService = require("../../services/common/UpdateService");
 const ListService = require("../../services/common/ListService");
 const DropDownService = require("../../services/common/DropDownService");
 const mongoose = require("mongoose");
+const CheckAssociateService = require("../../services/common/CheckAssociateService");
+
+const DeleteService = require("../../services/common/DeleteService");
 const DetailsByIDService = require("../../services/common/DetailsByIDService");
 
 exports.CreateExpenseTypes = async (req, res) => {
@@ -31,4 +35,21 @@ exports.ExpenseTypesDropDown = async (req, res) => {
 exports.ExpenseTypesDetailsByID = async (req, res) => {
   let Result = await DetailsByIDService(req, DataModel);
   res.status(200).json(Result);
+};
+
+exports.DeleteExpenseTypes = async (req, res) => {
+  let DeleteID = req.params.id;
+  const ObjectId = mongoose.Types.ObjectId;
+  let CheckAssociate = await CheckAssociateService(
+    { TypeID: ObjectId(DeleteID) },
+    ExpensesModel
+  );
+  if (CheckAssociate) {
+    res
+      .status(200)
+      .json({ status: "associate", data: "Associate with Expenses" });
+  } else {
+    let Result = await DeleteService(req, DataModel);
+    res.status(200).json(Result);
+  }
 };
