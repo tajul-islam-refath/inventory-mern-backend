@@ -3,11 +3,9 @@ const app = require("./app");
 const mongoose = require("mongoose");
 
 // Mongo DB Database Connection
-let URI =
-  "mongodb+srv://rifat:rifat12345@cluster0.ltldm.mongodb.net/inventory?retryWrites=true&w=majority";
-
-//   let URI =
-//   "mongodb+srv://<username>:<password>@cluster0.7uslu.mongodb.net/inventory?retryWrites=true&w=majority";
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASS;
+let URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ltldm.mongodb.net/inventory?retryWrites=true&w=majority`;
 
 const options = {
   useNewUrlParser: true,
