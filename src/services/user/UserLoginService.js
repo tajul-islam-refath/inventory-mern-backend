@@ -19,7 +19,7 @@ const UserLoginService = async (Request, DataModel) => {
       let token = await CreateToken(data[0]["email"]);
       return { status: "success", token: token, data: data[0] };
     } else {
-      return { status: "unauthorized" };
+      return { status: "unauthorized", data: "Email or password not valid" };
     }
   } catch (error) {
     return { status: "fail", data: error.toString() };

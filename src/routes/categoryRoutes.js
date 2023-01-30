@@ -4,28 +4,28 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 const CategoriesController = require("../controllers/Categories/CategoriesController");
 
 router.post(
-  "/Category/CreateCategories",
+  "/CreateCategories",
   AuthVerifyMiddleware,
   CategoriesController.CreateCategories
 );
 router.post(
-  "/Category/UpdateCategories/:id",
+  "/UpdateCategories/:id",
   AuthVerifyMiddleware,
   CategoriesController.UpdateCategories
 );
 router.get(
-  "/Category/CategoriesList/:pageNo/:perPage/:searchKeyword",
+  "/CategoriesList/:pageNo/:perPage/:searchKeyword",
   AuthVerifyMiddleware,
   CategoriesController.CategoriesList
 );
 router.get(
-  "/Category/CategoriesDropDown",
+  "/CategoriesDropDown",
   AuthVerifyMiddleware,
   CategoriesController.CategoriesDropDown
 );
 
 router.get(
-  "/Category/CategoriesDetailsByID/:id",
+  "/CategoriesDetailsByID/:id",
   AuthVerifyMiddleware,
   CategoriesController.CategoriesDetailsByID
 );

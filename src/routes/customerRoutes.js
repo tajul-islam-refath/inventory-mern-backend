@@ -4,27 +4,27 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 const CustomersController = require("../controllers/Customers/CustomersController");
 
 router.post(
-  "/Customer/CreateCustomers",
+  "/CreateCustomers",
   AuthVerifyMiddleware,
   CustomersController.CreateCustomers
 );
 router.post(
-  "/Customer/UpdateCustomers/:id",
+  "/UpdateCustomers/:id",
   AuthVerifyMiddleware,
   CustomersController.UpdateCustomers
 );
 router.get(
-  "/Customer/CustomersList/:pageNo/:perPage/:searchKeyword",
+  "/CustomersList/:pageNo/:perPage/:searchKeyword",
   AuthVerifyMiddleware,
   CustomersController.CustomersList
 );
 router.get(
-  "/Customer/CustomersDropDown",
+  "/CustomersDropDown",
   AuthVerifyMiddleware,
   CustomersController.CustomersDropDown
 );
 router.get(
-  "/Customer/CustomersDetailsByID/:id",
+  "/CustomersDetailsByID/:id",
   AuthVerifyMiddleware,
   CustomersController.CustomersDetailsByID
 );

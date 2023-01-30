@@ -4,27 +4,27 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 const BrandsController = require("../controllers/Brands/BrandsController");
 
 router.post(
-  "/Brand/CreateBrand",
+  "/CreateBrand",
   AuthVerifyMiddleware,
   BrandsController.CreateBrand
 );
 router.post(
-  "/Brand/UpdateBrand/:id",
+  "/UpdateBrand/:id",
   AuthVerifyMiddleware,
   BrandsController.UpdateBrand
 );
 router.get(
-  "/Brand/BrandList/:pageNo/:perPage/:searchKeyword",
+  "/BrandList/:pageNo/:perPage/:searchKeyword",
   AuthVerifyMiddleware,
   BrandsController.BrandList
 );
 router.get(
-  "/Brand/BrandDropDown",
+  "/BrandDropDown",
   AuthVerifyMiddleware,
   BrandsController.BrandDropDown
 );
 router.get(
-  "/Brand/BrandDetailsByID/:id",
+  "/BrandDetailsByID/:id",
   AuthVerifyMiddleware,
   BrandsController.BrandDetailsByID
 );
