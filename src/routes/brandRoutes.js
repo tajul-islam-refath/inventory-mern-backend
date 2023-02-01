@@ -3,11 +3,7 @@ const AuthVerifyMiddleware = require("../middlewares/AuthVerifyMiddleware");
 
 const BrandsController = require("../controllers/Brands/BrandsController");
 
-router.post(
-  "/CreateBrand",
-  AuthVerifyMiddleware,
-  BrandsController.CreateBrand
-);
+router.post("/CreateBrand", AuthVerifyMiddleware, BrandsController.CreateBrand);
 router.post(
   "/UpdateBrand/:id",
   AuthVerifyMiddleware,
@@ -30,7 +26,7 @@ router.get(
 );
 
 router.get(
-  "/Brand/DeleteBrand/:id",
+  "/DeleteBrand/:id",
   AuthVerifyMiddleware,
   BrandsController.DeleteBrand
 );

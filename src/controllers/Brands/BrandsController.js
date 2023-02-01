@@ -40,7 +40,7 @@ exports.DeleteBrand = async (req, res) => {
   const ObjectId = mongoose.Types.ObjectId;
   let CheckAssociate = await CheckAssociateService(
     { BrandID: ObjectId(DeleteID) },
-    ProductsModel
+    DataModel
   );
   if (CheckAssociate) {
     res

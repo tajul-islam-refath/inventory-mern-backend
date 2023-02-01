@@ -6,6 +6,7 @@ const CreateParentChildsService = async (
   ChildsModel,
   JoinPropertyName
 ) => {
+  console.log(Request.body);
   // Create Transaction Session
   const session = await mongoose.startSession();
 
