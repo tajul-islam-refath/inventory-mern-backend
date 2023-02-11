@@ -1,8 +1,10 @@
 const ParentModel = require("../../models/Purchases/PurchasesModel");
 const ChildsModel = require("../../models/Purchases/PurchaseProductsModel");
+const ProductsModel = require("../../models/Products/ProductsModel");
 const CreateParentChildsService = require("../../services/common/CreateParentChildsService");
 const ListOneJoinService = require("../../services/common/ListOneJoinService");
 const DeleteParentChildsService = require("../../services/common/DeleteParentChildsService");
+const UpdateListService = require("../../services/common/UpdateListService");
 
 exports.CreatePurchases = async (req, res) => {
   let Result = await CreateParentChildsService(
@@ -11,6 +13,10 @@ exports.CreatePurchases = async (req, res) => {
     ChildsModel,
     "PurchaseID"
   );
+
+  // update product stock
+  UpdateListService(req, ProductsModel, "add");
+
   res.status(200).json(Result);
 };
 
