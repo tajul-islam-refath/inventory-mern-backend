@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASS;
 let URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ltldm.mongodb.net/inventory?retryWrites=true&w=majority`;
-
 const options = {
   useNewUrlParser: true,
 };
