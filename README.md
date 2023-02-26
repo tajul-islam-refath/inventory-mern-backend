@@ -10,7 +10,7 @@ The app allows :
 - Create product, purchase and return product
 - Generate sales, return report etc.
 
-  technologies:
+## technologies:
 
 - [Node.js](https://nodejs.org/en/) - The JavaScript runtime used
 - [Express](https://expressjs.com/) - The web framework used
@@ -75,10 +75,6 @@ This means the app is ready to be used.
 The app REST API will be available at http://localhost:5050/api/v1/
 
 The Postman documation will be available [here](https://documenter.getpostman.com/view/22821036/2s935hS7uk)
-
-## Event REST API
-
-The Event REST API is an API for managing events. It allows users to create, retrieve, update and delete events. The API is built using Node.js and Express JS in the backend, and MySQL for data storage.
 
 #### Base URL for the API `http://localhost:5050/api/v1/`
 
