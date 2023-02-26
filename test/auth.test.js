@@ -13,7 +13,7 @@ const options = {
   useNewUrlParser: true,
 };
 
-describe("auth test", () => {
+describe("auth test suit", () => {
   beforeAll(async () => {
     // connect data base
     await mongoose.connect(URL, options);
