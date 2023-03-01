@@ -8,10 +8,13 @@ const UserLoginService = require("../src/services/user/UserLoginService");
 // database
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASS;
-let URL = `mongodb+srv://DB_USER:DB_PASSWORD@cluster0.ltldm.mongodb.net/inventoryTest?retryWrites=true&w=majority`;
+let URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ltldm.mongodb.net/inventoryTest?retryWrites=true&w=majority`;
 const options = {
   useNewUrlParser: true,
 };
+
+let token = null;
+let user = null;
 
 describe("auth test suit", () => {
   beforeAll(async () => {
@@ -32,13 +35,14 @@ describe("auth test suit", () => {
       password: "12345678",
     };
 
-    let res = await UserCreateService({ body: user }, UserModel);
+    // let res = await UserCreateService({ body: user }, UserModel);
+    let res = await request(app).post("/api/v1/Registration").send(user);
     // console.log(res);
 
-    expect(res.status).toMatch(/success/);
-    expect(res.data._id).toBeDefined();
-    expect(res.data.email).toBe(res.data.email);
-    expect(res.data.password).toBe(res.data.password);
+    expect(res.body.status).toMatch(/success/);
+    expect(res.body.data._id).toBeDefined();
+    expect(res.body.data.email).toBe(res.body.data.email);
+    expect(res.body.data.password).toBe(res.body.data.password);
   });
 
   test("user should not create an account with a duplicate email", async () => {
@@ -62,8 +66,25 @@ describe("auth test suit", () => {
     });
 
     // console.log(response.body);
+    token = response.body.token;
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty("token");
+  });
+
+  test("user profile GET/", async () => {
+    let response = await request(app)
+      .get("/api/v1/ProfileDetails")
+      .set("token", token);
+
+    expect(response.status).toBe(200);
+    expect(response.body.status).toMatch(/success/);
+  });
+
+  test("unauthorized user", async () => {
+    let response = await request(app).get("/api/v1/ProfileDetails");
+
+    expect(response.status).toBe(401);
+    expect(response.body.status).toMatch(/unauthorized/);
   });
 });
