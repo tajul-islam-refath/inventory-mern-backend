@@ -66,8 +66,10 @@ Start the app
 npm run server
 ```
 
+Run test script
+
 ```
- webpack compiled successfully
+ npm run test
 ```
 
 This means the app is ready to be used.
