@@ -9,7 +9,7 @@ let URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ltldm.mongodb.net/in
 const options = {
   useNewUrlParser: true,
 };
-const PORT = 5050;
+const PORT = 5000;
 mongoose.connect(URI, options, (error) => {
   if (error) {
     console.error(error);

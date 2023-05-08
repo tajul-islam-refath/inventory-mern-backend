@@ -41,8 +41,7 @@ describe("auth test suit", () => {
 
     expect(res.body.status).toMatch(/success/);
     expect(res.body.data._id).toBeDefined();
-    expect(res.body.data.email).toBe(res.body.data.email);
-    expect(res.body.data.password).toBe(res.body.data.password);
+    expect(res.body.data.email).toBe("refath@gmail.com");
   });
 
   test("user should not create an account with a duplicate email", async () => {
