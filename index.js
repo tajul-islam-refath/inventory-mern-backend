@@ -6,11 +6,10 @@ const mongoose = require("mongoose");
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASS;
 let URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ltldm.mongodb.net/inventory?retryWrites=true&w=majority`;
-
 const options = {
   useNewUrlParser: true,
 };
-const PORT = 5050;
+const PORT = 5000;
 mongoose.connect(URI, options, (error) => {
   if (error) {
     console.error(error);

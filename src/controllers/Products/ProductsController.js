@@ -95,6 +95,10 @@ exports.DeleteProduct = async (req, res) => {
 };
 
 exports.ProductsDropDown = async (req, res) => {
-  let Result = await DropDownService(req, DataModel, { _id: 1, Name: 1 });
+  let Result = await DropDownService(req, DataModel, {
+    _id: 1,
+    Name: 1,
+    Stock: 1,
+  });
   res.status(200).json(Result);
 };
